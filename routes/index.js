@@ -10,11 +10,11 @@ router
   .get((req, res) => {
     if (req.query.year || req.query.genre || req.query.sortBy) {
       if (req.query.year) {
-        movies.selectByYear(req.query.year);
+        res.json(movies.selectByYear(req.query.year));
       } else if (req.query.genre) {
-        movies.selectByGenre(req.query.genre);
+        res.json(movies.selectByGenre(req.query.genre));
       } else if (req.query.sortBy) {
-        movies.sortBy(req.query.sortBy);
+        res.json(movies.sortBy(req.query.sortBy));
       }
     } else {
       res.json(movies);
